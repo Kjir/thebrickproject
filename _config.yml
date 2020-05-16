@@ -53,7 +53,8 @@ defaults:
       section: "post" # set the root section name
 
 collections:
-  - homepage_sections
+  homepage_sections:
+    sort_by: order
 # Build settings
 markdown: kramdown
 

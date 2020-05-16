@@ -12,8 +12,9 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-template-columns:
     [full-start] minmax(1rem, 1fr)
-    [main-start] minmax(0, 75rem) [main-end]
-    minmax(1rem, 1fr) [full-end];
+    [main-start] minmax(0, 75rem)
+    [main-end] minmax(1rem, 1fr)
+    [full-end];
 }
 
 // by default, make any new children of body to span the full track
@@ -29,7 +30,6 @@ header {
   display: grid;
   background-color: $brand-color;
   padding: 2rem;
-  position: fixed;
   width: 100vw;
   @media screen and (min-width: $screen-sm-min) {
     grid-template-columns: 1fr auto;
@@ -61,9 +61,9 @@ header > h1 {
 // our main content wrapper, the width scales with font size
 main {
   width: 100%;
-  grid-column: main;
+  grid-column: full;
   display: grid;
-  padding: 8rem 0;
+  padding: 15px 0;
   @media screen and (min-width: $screen-md-min) {
     align-content: start;
   }

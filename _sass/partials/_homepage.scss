@@ -1,6 +1,6 @@
 section {
     display:grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(1fr, 75rem);
     padding: 2rem 0;
     place-items: center;
     margin: 3rem 0;
@@ -8,11 +8,27 @@ section {
 
 section.alternate-color {
     background-color: $brand-color;
+    color: $text-color-negative;
+}
+
+section.light-color {
+    background-color: $section-light-color;
 }
 
 @media(min-width: 900px) {
     section {
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: [full-start] auto [text-start] 45rem [text-end image-start] 30rem [image-end] auto [full-end];
+        .text-description {
+            grid-column: text;
+        }
+
+        .image {
+            grid-column: image;
+        }
+    }
+
+    section.text-only {
+        grid-template-columns: [full-start] auto [text-start] 75rem [text-end] auto [full-end];
     }
 
     section:nth-child(2n) {

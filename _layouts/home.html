@@ -3,12 +3,12 @@ layout: default
 ---
 
 <section class="top-section">
-    <div>
+    <div class="text-description">
         <h1>{{ page.title }}</h1>
 
         {{ content }}
     </div>
-    <figure>
+    <figure class="image">
         <picture>
             <img src="{{page.image}}" alt="A new retreat center"/>
         </picture>
@@ -16,13 +16,13 @@ layout: default
 </section>
 
 {% for section in site.homepage_sections %}
-<section{% if section.class %} class="{{ section.class }}"{% endif %}>
-    <div>
+<section class="{{ section.class }}{% unless section.image %} text-only{% endunless %}">
+    <div class="text-description">
     <h2>{{ section.title }}</h2>
     {{ section.content | markdownify }}
     </div>
     {% if section.image %}
-    <figure>
+    <figure class="image">
         <picture>
             <img src="{{section.image}}" alt="{{section.image_description}}"/>
         </picture>
