@@ -1,0 +1,21 @@
+section {
+    display:grid;
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+    place-items: center;
+    margin: 3rem 0;
+}
+
+section.alternate-color {
+    background-color: $brand-color;
+}
+
+@media(min-width: 900px) {
+    section {
+        grid-template-columns: 2fr 3fr;
+    }
+
+    section:nth-child(2n) {
+        direction: rtl;
+    }
+}

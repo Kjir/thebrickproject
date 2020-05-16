@@ -2,22 +2,31 @@
 layout: default
 ---
 
-<h2>{{ page.title }}</h2>
+<section class="top-section">
+    <div>
+        <h1>{{ page.title }}</h1>
 
-  {% include page-intro.html %}
+        {{ content }}
+    </div>
+    <figure>
+        <picture>
+            <img src="{{page.image}}" alt="A new retreat center"/>
+        </picture>
+    </figure>
+</section>
 
-  {{ content }}
-
-  <section>
-
-    <h3>Recent posts from the blog</h3>
-
-    <ul>
-      {% for post in site.posts limit:3 %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-
-  </section>
+{% for section in site.homepage_sections %}
+<section{% if section.class %} class="{{ section.class }}"{% endif %}>
+    <div>
+    <h2>{{ section.title }}</h2>
+    {{ section.content | markdownify }}
+    </div>
+    {% if section.image %}
+    <figure>
+        <picture>
+            <img src="{{section.image}}" alt="{{section.image_description}}"/>
+        </picture>
+    </figure>
+    {% endif %}
+</section>
+{% endfor %}
